@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Responsive Page</title>
+  <style>
+    .col-75 {
+      flex: 0 0 75%;
+      max-width: 75%;
+      order: 1;
+    }
+    .col-25 {
+      flex: 0 0 25%;
+      max-width: 25%;
+      order: 2;
+    }
+    #1st,
+    #2nd {
+      height: 100%;
+    }
+
+    /* Add media query for mobile devices */
+    @media (max-width: 767px) {
+      .col-75,
+      .col-25 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      /* Reduce font size of h1 in mobile version */
+      h1 {
+        font-size: 24px;
+        margin-top: 20px; /* Add margin to separate headings from images */
+      }
+      /* Make images fit their container in mobile version */
+      .row img.img-fluid.cities {
+        width: 100%;
+        height: auto;
+      }
+      /* Force single-column layout on mobile */
+      .row > div[class^="col-md-"],
+      .row > div[class*=" col-md-"] {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row" id="">
+      <div class="col-md-9 col-75">
+        <div class="row" id="">
+          <div class="col-md-6 col-12" id="1st">
+            <!-- Column 1 -->
+            <img src="https://www.meteocentrale.ch/uploads/pics/uwz-ch_foehn_en.png?id=00db4265-5562-4dc0-bdf0-fbc5a91482e1&table=block&spaceId=63229be9-583f-4cbb-995b-4287eade7613&width=860&userId=&cache=v2" class="img-fluid" alt="Image 1">
+          </div>
+          <div class="col-md-6 col-12" id="2nd">
+            <!-- Column 2 -->
+            <iframe src="https://www.ilmeteo.it/box/previsioni.php?citta=2548&type=day1&width=400&ico=1&lang=ita&days=6&font=Arial&fontsize=12&bg=FFFFFF&fg=000000&bgtitle=0099FF&fgtitle=FFFFFF&bgtab=F0F0F0&fglink=1773C2" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+          </div>
+        </div>
+        <br>
+        <div class="row" id="row-2">
+          <div class="col-12">
+            <h1>Gera Lario</h1>
+            <img  src="http://rete.centrometeolombardo.com/Como/geralario/immagini/v.png?-1587752011?id=2c444371-db7d-4fb6-ac6d-e70ca881b883&table=block&spaceId=63229be9-583f-4cbb-995b-4287eade7613&width=2000&userId=&cache=v2" class="img-fluid cities" alt="Image 3">
+          </div>
+          <br>
+          <div class="col-12">
+            <h1>Domaso</h1>
+            <img src="http://rete.centrometeolombardo.com/Como/dongo/immagini/v.png?1997804744?id=d54d2bec-8756-4c97-9f56-0a5e22a0b2aa&table=block&spaceId=63229be9-583f-4cbb-995b-4287eade7613&width=2000&userId=&cache=v2" class="img-fluid cities" alt="Image 5">
+          </div>
+          <br>
+          <div class="col-12">
+            <h1>Gravedona</h1>
+            <img src="http://rete.centrometeolombardo.com/Lecco/valmadrera/immagini/v.png?-784980166?id=9f5402e1-82e9-4698-95fd-8baf6cbb1d79&table=block&spaceId=63229be9-583f-4cbb-995b-4287eade7613&width=2000&userId=&cache=v2" class="img-fluid cities" alt="Image 5">
+          </div>
+
+          <br>
+          <div class="col-12">
+            <h1>Dervio</h1>
+            <img src="http://rete.centrometeolombardo.com/Como/gravedona/immagini/v.png?1997804744?id=d54d2bec-8756-4c97-9f56-0a5e22a0b2aa&table=block&spaceId=63229be9-583f-4cbb-995b-4287eade7613&width=2000&userId=&cache=v2" class="img-fluid cities" alt="Image 5">
+          </div>
+          <br>
+          <div class="col-12">
+            <h1>Lecco</h1>
+            <br>
+            <img src="http://rete.centrometeolombardo.com/Lecco/dervio/immagini/v.png?1997804744?id=d54d2bec-8756-4c97-9f56-0a5e22a0b2aa&table=block&spaceId=63229be9-583f-4cbb-995b-4287eade7613&width=2000&userId=&cache=v2" class="img-fluid cities" alt="Image 5">
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="col-md-3 col-25" id="side_bar">
+        <!-- Column 2 (25%) -->
+        <img src="http://rete.centrometeolombardo.com/Lecco/dervio/immagini/g.png?1060652566?id=098f8e34-af34-4e13-a581-6a3129510bfc&table=block&spaceId=63229be9-583f-4cbb-995b-4287eade7613&width=480&userId=&cache=v2" class="img-fluid" alt="Image 4">
+      </div>
+    </div>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Force HTTPS for images and iframes
+    document.addEventListener('DOMContentLoaded', function() {
+      var images = document.querySelectorAll('img');
+      var iframes = document.querySelectorAll('iframe');
+
+      images.forEach(function(img) {
+        if (img.src.startsWith('http://')) {
+          img.src = img.src.replace(/^http:\/\//i, 'https://');
+        }
+      });
+
+      iframes.forEach(function(iframe) {
+        if (iframe.src.startsWith('http://')) {
+          iframe.src = iframe.src.replace(/^http:\/\//i, 'https://');
+        }
+      });
+    });
+
+    // Reload the page every 2 minutes (120,000 milliseconds)
+    setTimeout(function() {
+      location.reload();
+    }, 120000);
+  </script>
+</body>
+</html>
+
