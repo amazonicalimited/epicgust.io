@@ -100,23 +100,6 @@
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    // Force HTTPS for images and iframes
-    document.addEventListener('DOMContentLoaded', function() {
-      var images = document.querySelectorAll('img');
-      var iframes = document.querySelectorAll('iframe');
-
-      images.forEach(function(img) {
-        if (img.src.startsWith('http://')) {
-          img.src = img.src.replace(/^http:\/\//i, 'https://');
-        }
-      });
-
-      iframes.forEach(function(iframe) {
-        if (iframe.src.startsWith('http://')) {
-          iframe.src = iframe.src.replace(/^http:\/\//i, 'https://');
-        }
-      });
-    });
 
     // Reload the page every 2 minutes (120,000 milliseconds)
     setTimeout(function() {
